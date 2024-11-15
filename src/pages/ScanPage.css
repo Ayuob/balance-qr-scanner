@@ -1,0 +1,18 @@
+.scanner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.qr-result {
+  background: #f4f4f4;
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  word-break: break-all;
+}
+
+.submit-button {
+  margin-top: 20px;
+}

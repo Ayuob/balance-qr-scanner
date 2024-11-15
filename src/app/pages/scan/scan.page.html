@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>QR Scanner</ion-title>
+    <ion-buttons slot="end">
+      <ion-button routerLink="/settings">
+        <ion-icon slot="icon-only" name="settings-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="scanner-container">
+    <ion-card *ngIf="qrData" class="qr-result">
+      <ion-card-content>
+        <p>QR Code Data: {{ qrData }}</p>
+      </ion-card-content>
+    </ion-card>
+
+    <app-qr-scanner 
+      *ngIf="!qrData"
+      (scannedData)="onQrScanned($event)">
+    </app-qr-scanner>
+  </div>
+
+  <app-phone-form
+    *ngIf="qrData"
+    (formSubmit)="onPhoneSubmit($event)">
+  </app-phone-form>
+
+  <app-offline-banner [isOnline]="isOnline"></app-offline-banner>
+</ion-content>

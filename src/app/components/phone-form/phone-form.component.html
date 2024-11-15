@@ -1,0 +1,26 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <ion-item>
+    <ion-label position="stacked">Phone Number</ion-label>
+    <ion-input
+      type="tel"
+      formControlName="phoneNumber"
+      placeholder="Enter phone number"
+    ></ion-input>
+  </ion-item>
+
+  <div class="ion-padding-vertical" *ngIf="form.get('phoneNumber')?.touched && form.get('phoneNumber')?.invalid">
+    <ion-text color="danger">
+      <small>Please enter a valid phone number</small>
+    </ion-text>
+  </div>
+
+  <ion-button
+    expand="block"
+    type="submit"
+    [disabled]="form.invalid"
+    class="ion-margin-top"
+  >
+    <ion-icon slot="start" name="cloud-upload-outline"></ion-icon>
+    Submit
+  </ion-button>
+</form>
